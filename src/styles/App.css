@@ -18,3 +18,19 @@
 .CompLabel {
     color: #4CB963;
 }
+
+.Coffee {
+    width: 200px;
+    height: 112px;
+}
+
+.TodoBtns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.BreakImg {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}

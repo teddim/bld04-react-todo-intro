@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TodoList from './TodoList';
 import UserView from './UserView';
 import Nav from './Nav';
+import BreakTime from './BreakTime';
 import './styles/App.css';
 import './styles/skeleton.css';
 import './styles/normalize.css';
@@ -15,7 +16,8 @@ class App extends Component {
             { "title": "clean house", "state": "in progress" },
             { "title": "mow lawn", "state": "queued" }
             ],
-            "user": { "firstName": "Brent", "lastName": "Gardner" }
+            "user": { "firstName": "Brent", "lastName": "Gardner" },
+            selectedView: "TodoList"
         }
 
         setInterval(() => {
@@ -31,11 +33,30 @@ class App extends Component {
         super.setState(newState);
     }
 
+    displayBreakTimeComp = () => {
+        const newState = JSON.parse(JSON.stringify(this.state));
+        newState.selectedView = 'BreakTime';
+        super.setState(newState);
+    }
+
+    displayTodoList = () => {
+        const newState = JSON.parse(JSON.stringify(this.state));
+        newState.selectedView = 'TodoList';
+        super.setState(newState);
+    }
+
     render() {
+        let currentView;
+        if (this.state.selectedView === "TodoList") {
+            currentView = <TodoList todos={this.state.todos} addOne={this.newTodo} switchView={this.displayBreakTimeComp} />
+            
+        } else {
+            currentView = <BreakTime switchView={this.displayTodoList}/>
+        }
         return (<div className="App">
             <Nav/>
             <UserView firstName={this.state.user.firstName} />
-            <TodoList todos={this.state.todos} addOne={this.newTodo} />
+            {currentView}
         </div>);
     }
 }

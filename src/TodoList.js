@@ -10,7 +10,10 @@ class TodoList extends Component {
                 <ol>
                     {this.props.todos.map(p => <li>{p.title}</li>)}
                 </ol>
-                <button onClick={() => this.props.addOne('Get to work!', 'queued')}>Add</button>
+                <div className="TodoBtns">
+                    <button onClick={() => this.props.addOne('Get to work!', 'queued')}>Add</button>
+                    <button onClick={this.props.switchView}>I need a break!</button>
+                </div>
             </div>
         )
     }
