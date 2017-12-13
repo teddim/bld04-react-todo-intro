@@ -10,7 +10,7 @@ class TodoList extends Component {
     }
 
     handleChange = (event) => {
-        const newState = this.state;
+        const newState = JSON.parse(JSON.stringify(this.state));
         newState.firstName = event.target.value; // text in the box
         super.setState(newState);        
     }

@@ -16,14 +16,14 @@ class App extends Component {
     }
 
     setInterval(() => {
-      const newState = this.state;
-      newState.todos.push({ "title": "another thing", "state": "always more to do!" });
-      super.setState(newState);
+        const newState = JSON.parse(JSON.stringify(this.state));
+        newState.todos.push({ "title": "another thing", "state": "always more to do!" });
+        super.setState(newState);
     }, 5000);
   }
 
   newTodo = (title, state) => {
-    const newState = this.state;
+    const newState = JSON.parse(JSON.stringify(this.state));
     newState.todos.push({ "title": title, "state": state });
     super.setState(newState);
   }
