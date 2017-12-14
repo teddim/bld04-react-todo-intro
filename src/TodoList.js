@@ -12,7 +12,7 @@ class TodoList extends Component {
                 </ol>
                 <div className="TodoBtns">
                     <button onClick={() => this.props.addOne('Get to work!', 'queued')}>Add</button>
-                    <button onClick={this.props.switchView}>I need a break!</button>
+                    <button onClick={() => this.props.switchView()}>I need a break!</button>
                 </div>
             </div>
         )
