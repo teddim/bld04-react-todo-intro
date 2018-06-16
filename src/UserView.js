@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class UserView extends Component {
 
@@ -12,8 +12,8 @@ class UserView extends Component {
     handleChange = (event) => {
         const newState = JSON.parse(JSON.stringify(this.state));
         newState.firstName = event.target.value; // text in the box
-        super.setState(newState);        
-    }
+        super.setState(newState);
+    };
 
     render() {
         return (
@@ -21,7 +21,7 @@ class UserView extends Component {
                 <p className="CompLabel">UserView</p>
                 <h5>Current user is: {this.state.firstName}</h5>
                 <input type="text" value={this.state.firstName}
-                onChange={this.handleChange} />
+                       onChange={this.handleChange}/>
             </div>
         );
     }
