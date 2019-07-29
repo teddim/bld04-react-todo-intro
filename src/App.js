@@ -16,43 +16,36 @@ class App extends Component {
                 {"title": "clean house", "state": "in progress"},
                 {"title": "mow lawn", "state": "queued"}
             ],
-            "user": {"firstName": "Brent", "lastName": "Gardner"},
+            "user": {"firstName": "Teddi", "lastName": "Maull"},
             selectedView: "TodoList"
         };
-
-        setInterval(() => {
-            const newState = JSON.parse(JSON.stringify(this.state));
-            newState.todos.push({"title": "another thing", "state": "always more to do!"});
-            super.setState(newState);
-        }, 5000);
     }
 
-    newTodo = (title, state) => {
-        const newState = JSON.parse(JSON.stringify(this.state));
-        newState.todos.push({"title": title, "state": state});
-        super.setState(newState);
+    newTodo = (todo) => {
+        this.setState({todos: [...this.state.todos,{title:todo, "state": "queued"}]});
     };
 
     displayBreakTimeComp = () => {
-        const newState = JSON.parse(JSON.stringify(this.state));
-        newState.selectedView = 'BreakTime';
-        super.setState(newState);
+        this.setState({selectedView: "BreakTime"});
     };
 
     displayTodoList = () => {
         const newState = JSON.parse(JSON.stringify(this.state));
-        newState.selectedView = 'TodoList';
-        super.setState(newState);
+        newState.selectedView = "TodoList";
+        this.setState(newState);
     };
 
     render() {
         let currentView;
         if (this.state.selectedView === "TodoList") {
             currentView =
-                <TodoList todos={this.state.todos} addOne={this.newTodo} switchView={this.displayBreakTimeComp}/>
+                <TodoList
+                  todos={this.state.todos}
+                  newTodo={this.newTodo}
+                  displayBreakTimeComp={this.displayBreakTimeComp}/>
 
         } else {
-            currentView = <BreakTime switchView={this.displayTodoList}/>
+            currentView = <BreakTime displayTodoList={this.displayTodoList}/>
         }
         return (<div className="App">
             <Nav/>
