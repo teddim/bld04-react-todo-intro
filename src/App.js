@@ -48,8 +48,10 @@ class App extends Component {
             currentView = <BreakTime displayTodoList={this.displayTodoList}/>
         }
         return (<div className="App">
-            <Nav/>
-            <UserView firstName={this.state.user.firstName}/>
+          <Nav/>
+          <UserView
+            firstName={this.state.user.firstName}
+            totalTodo={this.state.todos.length}/>
             {currentView}
         </div>);
     }

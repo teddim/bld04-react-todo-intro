@@ -16,10 +16,11 @@ class UserView extends Component {
     render() {
         return (
             <div className="UserView">
-                <p className="CompLabel">UserView</p>
-                <h5>Current user is: {this.state.firstName}</h5>
-                <input type="text" value={this.state.firstName}
-                       onChange={this.handleChange}/>
+              <p className="CompLabel">UserView</p>
+              <h5>Current user is: {this.state.firstName}</h5>
+              <h5>Has {this.props.totalTodo} things to do.</h5>
+              <input type="text" value={this.state.firstName}
+                onChange={this.handleChange}/>
             </div>
         );
     }
