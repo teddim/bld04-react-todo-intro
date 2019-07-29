@@ -17,7 +17,7 @@ class App extends Component {
                 {"title": "mow lawn", "state": "queued"}
             ],
             "user": {"firstName": "Teddi", "lastName": "Maull"},
-            selectedView: "TodoList"
+            "selectedView": "TodoList"
         };
     }
 
@@ -30,9 +30,7 @@ class App extends Component {
     };
 
     displayTodoList = () => {
-        const newState = JSON.parse(JSON.stringify(this.state));
-        newState.selectedView = "TodoList";
-        this.setState(newState);
+        this.setState({selectedView: "TodoList"});
     };
 
     render() {
@@ -42,16 +40,17 @@ class App extends Component {
                 <TodoList
                   todos={this.state.todos}
                   newTodo={this.newTodo}
-                  displayBreakTimeComp={this.displayBreakTimeComp}/>
+                  displayBreakTimeComp={this.displayBreakTimeComp}/>;
 
         } else {
-            currentView = <BreakTime displayTodoList={this.displayTodoList}/>
+            currentView = <BreakTime displayTodoList={this.displayTodoList}/>;
         }
         return (<div className="App">
           <Nav/>
           <UserView
             firstName={this.state.user.firstName}
             totalTodo={this.state.todos.length}/>
+
             {currentView}
         </div>);
     }

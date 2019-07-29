@@ -10,7 +10,6 @@ const BreakTime = (props) => {
           alt="cup of cappuccino by Drew Coffman on unsplash"/>
           <button onClick={() => props.displayTodoList()}>Back To Work</button>
         </div>
-        
       </div>
   );
 }

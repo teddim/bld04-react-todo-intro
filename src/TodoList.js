@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 
 class TodoList extends Component {
     constructor(props){
-      super(props)
+      super(props);
       this.state = {
         todo: ""
-      }
+      };
     }
 
     submit = (e)=> {
-      e.preventDefault()
-      this.props.newTodo(this.state.todo)
+      e.preventDefault();
+      this.props.newTodo(this.state.todo);
     }
 
     render() {
@@ -32,7 +32,7 @@ class TodoList extends Component {
                 <button onClick={() => this.props.displayBreakTimeComp()}>I need a break!</button>
                 </div>
             </div>
-        )
+        );
     }
 }
 

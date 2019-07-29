@@ -10,7 +10,7 @@ class UserView extends Component {
     }
 
     handleChange = (event) => {
-        this.setState({firstName: event.target.value})
+        this.setState({firstName: event.target.value});
     };
 
     render() {
